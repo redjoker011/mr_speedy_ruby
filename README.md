@@ -54,9 +54,14 @@ Everyone interacting in the MrSpeedyRuby project’s codebases, issue trackers, 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/redjoker011/mr_speedy_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 
-[<img src="https://avatars2.githubusercontent.com/u/22144212?v=4" width="64px;"/><br /><sub><b>Peter John Alvarado</b></sub>](https://github.com/redjoker011)
-[<img src="https://avatars2.githubusercontent.com/u/34258568?v=4" width="64px;"/><br /><sub><b>Charles Martinez</b></sub>](https://github.com/cjbmartinez)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/redjoker011"><img src="https://avatars2.githubusercontent.com/u/22144212?v=4" width="100px;" alt=""/><br /><sub><b>Peter John Alvarado</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/cjbmartinez"><img src="https://avatars2.githubusercontent.com/u/34258568?v=4" width="100px;" alt=""/><br /><sub><b>Charles Martinez</b></sub></a><br /></td>
+  </tr>
+</table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END - Do not remove or modify this section -->
