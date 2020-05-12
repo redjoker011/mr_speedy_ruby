@@ -7,7 +7,7 @@ module MrSpeedyRuby
     require "json"
 
     AUTH_TOKEN_HEADER="X-DV-Auth-Token".freeze
-    PRODUCTION_BASE_URL="http://robot.mrspeedy.ph/".freeze
+    PRODUCTION_BASE_URL="http://robot.mrspeedy.ph".freeze
     STAGING_BASE_URL="https://robotapitest.mrspeedy.ph".freeze
 
     # Endpoint Generator
@@ -16,11 +16,11 @@ module MrSpeedyRuby
     # @private
     #
     # @param [String] endpoint request endpoint
-    # @param [Boolean] staging staging environment indicator
+    # @param [Boolean] sandbox sandbox environment indicator
     #
     # @return [String] request endpoint
-    def build_url(endpoint:, staging: false)
-      staging ? STAGING_BASE_URL : PRODUCTION_BASE_URL + endpoint
+    def build_url(endpoint:, sandbox: false)
+      sandbox ? STAGING_BASE_URL : PRODUCTION_BASE_URL + endpoint
     end
 
     # Send Post Request
