@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mr_speedy_ruby (0.1.0)
+    mr_speedy_ruby (1.0.0.pre.alpha.2)
 
 GEM
   remote: https://rubygems.org/

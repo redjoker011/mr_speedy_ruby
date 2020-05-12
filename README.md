@@ -4,7 +4,8 @@
 
 ![Travis (.org)](https://img.shields.io/travis/redjoker011/mr_speedy_ruby)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/redjoker011/mr_speedy_ruby?include_prereleases)
-[![Version](https://img.shields.io/gem/v/vcr.svg?style=flat-square)](https://rubygems.org/gems/mr_speedy_ruby)
+![Gem](https://img.shields.io/gem/v/mr_speedy_ruby)
+
 [![GitHub license](https://img.shields.io/github/license/redjoker011/mr_speedy_ruby)](https://github.com/redjoker011/mr_speedy_ruby/blob/development/LICENSE.txt)
 
 ## Installation
