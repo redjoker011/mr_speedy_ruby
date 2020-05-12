@@ -39,14 +39,14 @@ client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
 # Pickup Location Details Including Contact Person and Package
 pickup = {
   address: "Capitol Park Homes, 71 Berlin Avenue, Matandang Balara, Quezon City, Metro Manila",
-  contact_person: { name: "Admin One", phone: "639277876287" },
+  contact_person: { name: "Admin One", phone: "639123456789" },
   packages: []
 }
 
 # Delivery Location Details Including Contact Person and Package
 delivery = {
   address: "Unit 802, EcoTower, 32nd Street corner 9th Avenue, BGC, Taguig, 1634 Metro Manila",
-  contact_person: { name: "Admin One", phone: "639277876287" },
+  contact_person: { name: "Admin One", phone: "639123456789" },
   packages: []
 }
 
@@ -67,8 +67,11 @@ Also note we pass `sandbox` parameter with true value to indicate that we want
 to make a request on mr.speedy sandbox server.
 
 ##### Note:
+
 [Order Price Calculation](https://apitest.mrspeedy.ph/business-api/doc#calculate-order) parameters can also be passed as options.
+
 [Delivery Details](https://apitest.mrspeedy.ph/business-api/doc#calculate-order) can also be passed along pickup/delivery params.
+
 By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
 
 ### Placing an Order
@@ -101,8 +104,11 @@ parameter to ensure that we have the same `delivery fee`, We also set `sandbox`
 parameter to true to test our implementation against sandbox server.
 
 ##### Note:
+
 [Order Creation](https://apitest.mrspeedy.ph/business-api/doc#create-order) parameters can also be passed as options.
+
 [Delivery Details](https://apitest.mrspeedy.ph/business-api/doc#create-order) can also be passed along pickup/delivery params.
+
 By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
 
 ## Development
