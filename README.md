@@ -21,6 +21,90 @@ Or install it yourself as:
 This gem will provide service for integrating mr.speedy in your ruby app with
 ease.
 
+### Initialize Client
+We can initialize mr.speedy api client by providing authentication token
+located in our mr.speedy account setting.
+
+```ruby
+MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+```
+
+### Calculate Delivey Fee
+Send request to mr.speedy api for delivery fee calculation by providing delivery
+and pickup details
+
+```ruby
+client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+
+# Pickup Location Details Including Contact Person and Package
+pickup = {
+  address: "Capitol Park Homes, 71 Berlin Avenue, Matandang Balara, Quezon City, Metro Manila",
+  contact_person: { name: "Admin One", phone: "639277876287" },
+  packages: []
+}
+
+# Delivery Location Details Including Contact Person and Package
+delivery = {
+  address: "Unit 802, EcoTower, 32nd Street corner 9th Avenue, BGC, Taguig, 1634 Metro Manila",
+  contact_person: { name: "Admin One", phone: "639277876287" },
+  packages: []
+}
+
+# Additional Parameters
+options = { matter: "Food" }
+
+client.calculate_fees(delivery: delivery, pickup: pickup, opts: options, sandbox: true)
+```
+
+Theres so many things happening here first we initialize our client by providing
+token , then we pass delivery details as separate entity from options so we can
+easily validate required delivery details parameter. We also pass additional
+required parameter `matter` which indicates parcel type and lastly we call
+`MrSpeedyRuby::Client#calculate_fees` to send request for delivery fee
+calculation to mr.speedy api.
+
+Also note we pass `sandbox` parameter with true value to indicate that we want
+to make a request on mr.speedy sandbox server.
+
+##### Note:
+[Order Price Calculation](https://apitest.mrspeedy.ph/business-api/doc#calculate-order) parameters can also be passed as options.
+[Delivery Details](https://apitest.mrspeedy.ph/business-api/doc#calculate-order) can also be passed along pickup/delivery params.
+By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
+
+### Placing an Order
+Send request to mr.speedy api to create order.
+
+```ruby
+client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+
+# Pickup Location Details Including Contact Person and Package
+pickup = {
+  address: "Capitol Park Homes, 71 Berlin Avenue, Matandang Balara, Quezon City, Metro Manila",
+  contact_person: { name: "Admin One", phone: "639277876287" },
+  packages: []
+}
+
+# Delivery Location Details Including Contact Person and Package
+delivery = {
+  address: "Unit 802, EcoTower, 32nd Street corner 9th Avenue, BGC, Taguig, 1634 Metro Manila",
+  contact_person: { name: "Admin One", phone: "639277876287" },
+  packages: []
+}
+
+# Additional Parameters
+options = { matter: "Food" }
+
+client.place_order(delivery: delivery, pickup: pickup, opts: options, sandbox: true)
+```
+Like `delivery fee calculation` we also do the same steps and pass the exact
+parameter to ensure that we have the same `delivery fee`, We also set `sandbox`
+parameter to true to test our implementation against sandbox server.
+
+##### Note:
+[Order Creation](https://apitest.mrspeedy.ph/business-api/doc#create-order) parameters can also be passed as options.
+[Delivery Details](https://apitest.mrspeedy.ph/business-api/doc#create-order) can also be passed along pickup/delivery params.
+By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
