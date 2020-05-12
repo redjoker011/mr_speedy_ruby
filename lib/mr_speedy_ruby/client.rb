@@ -1,9 +1,11 @@
 require "mr_speedy_ruby/base"
+require "mr_speedy_ruby/lib/hash_refinement"
 
 module MrSpeedyRuby
   # Mr Speedy API Client
   # @since 0.1.0
   class Client < Base
+    using MrSpeedyRuby::Lib::HashRefinement
     # Vehicle Types
     # @see https://apitest.mrspeedy.ph/business-api/doc#vehicle-types
     CAR       = 7.freeze
@@ -42,6 +44,14 @@ module MrSpeedyRuby
     #
     # @see https://apitest.mrspeedy.ph/business-api/doc#calculate-order
     def calculate_fees(pickup:, delivery:, opts: {}, sandbox: false)
+      pickup_details = pickup.deep_symbolize_keys
+      pickup_details[:contact_person].to_h.assert_required_keys(points_keys)
+
+      delivery_details = delivery.deep_symbolize_keys
+      delivery_details[:contact_person].to_h.assert_required_keys(points_keys)
+
+      opts.deep_symbolize_keys.assert_required_keys(option_keys)
+
       endpoint = "/api/business/#{version}/calculate-order"
       url = build_url(endpoint, sandbox)
       # Set MOTORBIKE as default vehicle
@@ -53,6 +63,26 @@ module MrSpeedyRuby
       })
 
       post(endpoint: url, token: @token, payload: payload)
+    end
+
+    private
+
+    # Options Required Keys
+    #
+    # @private
+    #
+    # @return [Array<String>]
+    def option_keys
+      %i[matter]
+    end
+
+    # Points Required Keys
+    #
+    # @private
+    #
+    # @return [Array<String>]
+    def points_keys
+      %i[phone]
     end
   end
 end
