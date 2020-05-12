@@ -1,3 +1,5 @@
+require "mr_speedy_ruby/base"
+
 module MrSpeedyRuby
   # Mr Speedy API Client
   # @since 0.1.0
@@ -11,7 +13,7 @@ module MrSpeedyRuby
     # @attr_reader [String] version api version
     attr_reader :token, :version
 
-    def self.initialize(token:, version: "1.1")
+    def initialize(token:, version: "1.1")
       @token = token
       @version = version
     end
@@ -21,14 +23,14 @@ module MrSpeedyRuby
     # @param [String] to delivery location
     #
     # @see https://apitest.mrspeedy.ph/business-api/doc#calculate-order
-    def calculate_fee(from:, to:, opts:, sandbox: false)
-      endpoint = "api/business/#{version}/calculate-order"
+    def calculate_fees(from:, to:, opts: {}, sandbox: false)
+      endpoint = "/api/business/#{version}/calculate-order"
       url = build_url(endpoint, sandbox)
       # Set MOTORBIKE as default vehicle
-      vehicle = opts[:vehicle] || MOTORBIKE
+      vehicle = opts[:vehicle_type_id] || MOTORBIKE
 
       payload = opts.merge({
-        vehicle: vehicle,
+        vehicle_type_id: vehicle,
         points: [
           { address: from },
           { address: to }

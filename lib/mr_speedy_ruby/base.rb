@@ -19,8 +19,9 @@ module MrSpeedyRuby
     # @param [Boolean] sandbox sandbox environment indicator
     #
     # @return [String] request endpoint
-    def build_url(endpoint:, sandbox: false)
-      sandbox ? STAGING_BASE_URL : PRODUCTION_BASE_URL + endpoint
+    def build_url(endpoint, sandbox)
+      base_url = sandbox ? STAGING_BASE_URL : PRODUCTION_BASE_URL
+      base_url + endpoint
     end
 
     # Send Post Request
