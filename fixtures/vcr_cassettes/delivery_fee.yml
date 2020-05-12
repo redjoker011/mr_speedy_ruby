@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://robotapitest.mrspeedy.ph/api/business/1.1/calculate-order
+    body:
+      encoding: UTF-8
+      string: '{"matter":"Food","vehicle_type_id":8,"points":[{"address":"Capitol
+        Park Homes, 71 Berlin Avenue, Matandang Balara, Quezon City, Metro Manila","contact_person":{"name":"Merchant","phone":"639123456789"},"packages":[]},{"address":"Unit
+        802, EcoTower, 32nd Street corner 9th Avenue, BGC, Taguig, 1634 Metro Manila","contact_person":{"name":"Reciever","phone":"639123456789"},"packages":[]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - robotapitest.mrspeedy.ph
+      X-Dv-Auth-Token:
+      - 70B4ABCA8A35AC50E1585E27F217DF160F740D46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 12 May 2020 13:22:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block;
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"is_successful":true,"order":{"order_id":null,"order_name":null,"vehicle_type_id":8,"created_datetime":"2020-05-12T21:22:18+08:00","finish_datetime":null,"status":null,"matter":"Food","total_weight_kg":0,"is_client_notification_enabled":false,"is_contact_person_notification_enabled":false,"loaders_count":0,"backpayment_details":null,"points":[{"point_type":"plain","point_id":null,"client_order_id":null,"address":"Zurich
+        Ave, Matandang Balara, Quezon City, Metro Manila, Philippines","latitude":"14.6710069","longitude":"121.0944076","required_start_datetime":"2020-05-12T21:22:18+08:00","required_finish_datetime":"2020-05-12T22:30:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Merchant","phone":"639123456789"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null},{"point_type":"plain","point_id":null,"client_order_id":null,"address":"32nd
+        St. cor. 9th Ave, Taguig, Metro Manila, 32nd St, Taguig, Metro Manila, Philippines","latitude":"14.5528233","longitude":"121.0519364","required_start_datetime":"2020-05-12T21:22:18+08:00","required_finish_datetime":"2020-05-12T23:00:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Reciever","phone":"639123456789"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null}],"payment_amount":"170.00","delivery_fee_amount":"170.00","intercity_delivery_fee_amount":"0.00","weight_fee_amount":"0.00","insurance_amount":"0.00","insurance_fee_amount":"0.00","loading_fee_amount":"0.00","money_transfer_fee_amount":"0.00","suburban_delivery_fee_amount":"0.00","overnight_fee_amount":"0.00","discount_amount":"0.00","backpayment_amount":"0.00","cod_fee_amount":"0.00","backpayment_photo_url":null,"itinerary_document_url":null,"waybill_document_url":null,"courier":null,"is_motobox_required":false},"warnings":[],"parameter_warnings":null}'
+    http_version: null
+  recorded_at: Tue, 12 May 2020 13:22:19 GMT
+recorded_with: VCR 5.1.0
