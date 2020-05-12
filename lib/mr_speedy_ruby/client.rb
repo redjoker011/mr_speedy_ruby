@@ -19,11 +19,29 @@ module MrSpeedyRuby
     end
 
     # Delivery Fee Calculation
-    # @param [String] from pickup location
-    # @param [String] to delivery location
+    # @param [Hash] pickup pickup location
+    # @param pickup [String] :address delivery parcel pickup address
+    # @param pickup [Hash] :contact_person delivery parcel pickup contact person
+    # details
+    # @param contact_person [String] :name delivery parcel pickup contact person
+    #   name
+    # @param contact_person [String] :phone delivery parcel pickup contact person
+    # contact details(required)
+    #
+    # @param [Hash] delivery location
+    # @param delivery [String] :address delivery parcel address
+    # @param delivery [Hash] :contact_person delivery parcel contact person details
+    # @param contact_person [String] :name delivery parcel contact person name
+    # @param contact_person [String] :phone delivery parcel contact person
+    # contact details(required)
+    #
+    # @param [Hash] opts additional details
+    # @param opts [String] :matter delivery parcel type
+    #
+    # @param [Boolean] sandbox sandbox identifier(default false)
     #
     # @see https://apitest.mrspeedy.ph/business-api/doc#calculate-order
-    def calculate_fees(from:, to:, opts: {}, sandbox: false)
+    def calculate_fees(pickup:, delivery:, opts: {}, sandbox: false)
       endpoint = "/api/business/#{version}/calculate-order"
       url = build_url(endpoint, sandbox)
       # Set MOTORBIKE as default vehicle
@@ -31,10 +49,7 @@ module MrSpeedyRuby
 
       payload = opts.merge({
         vehicle_type_id: vehicle,
-        points: [
-          { address: from },
-          { address: to }
-        ]
+        points: [pickup, delivery]
       })
 
       post(endpoint: url, token: @token, payload: payload)
