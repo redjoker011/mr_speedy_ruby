@@ -45,10 +45,12 @@ module MrSpeedyRuby
     # @see https://apitest.mrspeedy.ph/business-api/doc#calculate-order
     def calculate_fees(pickup:, delivery:, opts: {}, sandbox: false)
       pickup_details = pickup.deep_symbolize_keys
-      pickup_details[:contact_person].to_h.assert_required_keys(points_keys)
+      pickup_details.assert_required_keys(points_keys)
+      pickup_details[:contact_person].to_h.assert_required_keys(contact_person_keys)
 
       delivery_details = delivery.deep_symbolize_keys
-      delivery_details[:contact_person].to_h.assert_required_keys(points_keys)
+      delivery_details.assert_required_keys(points_keys)
+      delivery_details[:contact_person].to_h.assert_required_keys(contact_person_keys)
 
       opts.deep_symbolize_keys.assert_required_keys(option_keys)
 
@@ -82,7 +84,25 @@ module MrSpeedyRuby
     #
     # @return [Array<String>]
     def points_keys
+      %i[packages]
+    end
+
+    # Contact Person Required Keys
+    #
+    # @private
+    #
+    # @return [Array<String>]
+    def contact_person_keys
       %i[phone]
+    end
+
+    # Package Required Keys
+    #
+    # @private
+    #
+    # @return [Array<String>]
+    def package_keys
+      %i[ware_code description items_count item_payment_amount]
     end
   end
 end
