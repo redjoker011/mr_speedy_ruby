@@ -10,7 +10,7 @@ module MrSpeedyRuby
       "unexpected_error"                    => UnexpectedError,
       "invalid_api_version"                 => InvalidAPIVersion,
       "invalid_api_upgrade"                 => InvalidAPIUpgrage,
-      "request_limit_exceed"                => RequestLimitExceed,
+      "request_limit_exceeded"              => RequestLimitExceeded,
       "required_auth_token"                 => RequiredAuthToken,
       "invalid_auth_token"                  => InvalidAuthToken,
       "required_method_get"                 => RequiredMethodGET,
