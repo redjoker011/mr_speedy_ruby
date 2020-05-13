@@ -153,7 +153,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 - [x] Create Order
 - [ ] Update Order
 - [ ] Cancel Order
-- [ ] Order List
+- [x] Order List
 - [ ] Courier Info and Location Tracker
 - [ ] Create Draft Deliveries
 - [ ] Update Draft Deliveries
