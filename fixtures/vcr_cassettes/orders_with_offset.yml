@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://robotapitest.mrspeedy.ph/api/business/1.1/orders?offset=1
+    body:
+      encoding: UTF-8
+      string: '{"offset":1}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - robotapitest.mrspeedy.ph
+      X-Dv-Auth-Token:
+      - 70B4ABCA8A35AC50E1585E27F217DF160F740D46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 13 May 2020 14:47:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block;
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"is_successful":true,"orders":[{"order_id":77799,"order_name":"77799","vehicle_type_id":8,"created_datetime":"2020-05-12T20:28:12+08:00","finish_datetime":null,"status":"available","status_description":"Available","matter":"Food","total_weight_kg":0,"is_client_notification_enabled":false,"is_contact_person_notification_enabled":false,"loaders_count":0,"backpayment_details":null,"points":[{"point_type":"plain","point_id":203150,"client_order_id":null,"address":"Zurich
+        Ave, Matandang Balara, Quezon City, Metro Manila, Philippines","latitude":"14.6710069","longitude":"121.0944076","required_start_datetime":"2020-05-13T22:58:12+08:00","required_finish_datetime":"2020-05-14T00:00:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Admin
+        One","phone":"639277876287"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null},{"point_type":"plain","point_id":203151,"client_order_id":null,"address":"32nd
+        St. cor. 9th Ave, Taguig, Metro Manila, 32nd St, Taguig, Metro Manila, Philippines","latitude":"14.5528233","longitude":"121.0519364","required_start_datetime":"2020-05-13T22:58:12+08:00","required_finish_datetime":"2020-05-14T00:30:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Admin
+        One","phone":"639277876287"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null}],"payment_amount":"170.00","delivery_fee_amount":"170.00","intercity_delivery_fee_amount":"0.00","weight_fee_amount":"0.00","insurance_amount":"0.00","insurance_fee_amount":"0.00","loading_fee_amount":"0.00","money_transfer_fee_amount":"0.00","suburban_delivery_fee_amount":"0.00","overnight_fee_amount":"0.00","discount_amount":"0.00","backpayment_amount":"0.00","cod_fee_amount":"0.00","backpayment_photo_url":null,"itinerary_document_url":null,"waybill_document_url":null,"courier":null,"is_motobox_required":false},{"order_id":77778,"order_name":"77778","vehicle_type_id":8,"created_datetime":"2020-05-12T17:32:16+08:00","finish_datetime":null,"status":"available","status_description":"Available","matter":"Food","total_weight_kg":0,"is_client_notification_enabled":false,"is_contact_person_notification_enabled":false,"loaders_count":0,"backpayment_details":null,"points":[{"point_type":"plain","point_id":203114,"client_order_id":null,"address":"Zurich
+        Ave, Matandang Balara, Quezon City, Metro Manila, Philippines","latitude":"14.6710069","longitude":"121.0944076","required_start_datetime":"2020-05-13T22:32:16+08:00","required_finish_datetime":"2020-05-14T00:00:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Admin
+        One","phone":"639277876287"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null},{"point_type":"plain","point_id":203115,"client_order_id":null,"address":"32nd
+        St. cor. 9th Ave, Taguig, Metro Manila, 32nd St, Taguig, Metro Manila, Philippines","latitude":"14.5528233","longitude":"121.0519364","required_start_datetime":"2020-05-13T22:32:16+08:00","required_finish_datetime":"2020-05-14T00:30:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Admin
+        One","phone":"639277876287"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null}],"payment_amount":"170.00","delivery_fee_amount":"170.00","intercity_delivery_fee_amount":"0.00","weight_fee_amount":"0.00","insurance_amount":"0.00","insurance_fee_amount":"0.00","loading_fee_amount":"0.00","money_transfer_fee_amount":"0.00","suburban_delivery_fee_amount":"0.00","overnight_fee_amount":"0.00","discount_amount":"0.00","backpayment_amount":"0.00","cod_fee_amount":"0.00","backpayment_photo_url":null,"itinerary_document_url":null,"waybill_document_url":null,"courier":null,"is_motobox_required":false},{"order_id":77777,"order_name":"77777","vehicle_type_id":8,"created_datetime":"2020-05-12T17:13:08+08:00","finish_datetime":null,"status":"available","status_description":"Available","matter":"Food","total_weight_kg":0,"is_client_notification_enabled":false,"is_contact_person_notification_enabled":false,"loaders_count":0,"backpayment_details":null,"points":[{"point_type":"plain","point_id":203112,"client_order_id":null,"address":"Zurich
+        Ave, Matandang Balara, Quezon City, Metro Manila, Philippines","latitude":"14.6710069","longitude":"121.0944076","required_start_datetime":"2020-05-13T22:43:08+08:00","required_finish_datetime":"2020-05-14T00:00:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Admin
+        One","phone":"639277876287"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null},{"point_type":"plain","point_id":203113,"client_order_id":null,"address":"32nd
+        St. cor. 9th Ave, Taguig, Metro Manila, 32nd St, Taguig, Metro Manila, Philippines","latitude":"14.5528233","longitude":"121.0519364","required_start_datetime":"2020-05-13T22:43:08+08:00","required_finish_datetime":"2020-05-14T00:30:00+08:00","arrival_start_datetime":null,"arrival_finish_datetime":null,"courier_visit_datetime":null,"contact_person":{"name":"Admin
+        One","phone":"639277876287"},"taking_amount":"0.00","buyout_amount":"0.00","note":null,"packages":[],"is_cod_cash_voucher_required":false,"is_order_payment_here":false,"building_number":null,"entrance_number":null,"intercom_code":null,"floor_number":null,"apartment_number":null,"invisible_mile_navigation_instructions":null}],"payment_amount":"170.00","delivery_fee_amount":"170.00","intercity_delivery_fee_amount":"0.00","weight_fee_amount":"0.00","insurance_amount":"0.00","insurance_fee_amount":"0.00","loading_fee_amount":"0.00","money_transfer_fee_amount":"0.00","suburban_delivery_fee_amount":"0.00","overnight_fee_amount":"0.00","discount_amount":"0.00","backpayment_amount":"0.00","cod_fee_amount":"0.00","backpayment_photo_url":null,"itinerary_document_url":null,"waybill_document_url":null,"courier":null,"is_motobox_required":false}],"orders_count":4}'
+    http_version: null
+  recorded_at: Wed, 13 May 2020 14:47:46 GMT
+recorded_with: VCR 5.1.0
