@@ -10,6 +10,19 @@ module MrSpeedyRuby
     PRODUCTION_BASE_URL="http://robot.mrspeedy.ph".freeze
     STAGING_BASE_URL="https://robotapitest.mrspeedy.ph".freeze
 
+    # Constructor method
+    # @since 1.0.0-alpha.3
+    #
+    # @attr_reader [String] token authentication token
+    # @attr_reader [String] version api version
+    attr_reader :token, :version
+
+    def initialize(token:, version: "1.1")
+      @token = token
+      @version = version
+    end
+
+
     # Endpoint Generator
     # @since v0.1.0
     #
@@ -38,6 +51,20 @@ module MrSpeedyRuby
       response_body
     end
 
+    # Send Get Request
+    # @since 1.0.0-alpha.3
+    # @param endpoint [String] request endpoint
+    # @param token [String] app token
+    # @param payload [Hash] message payload
+    #
+    # @return [Json] response
+    def get(endpoint:, token:, payload: {})
+      response = send_request("get", endpoint, token, payload)
+
+      response_body = JSON.parse(response.body)
+      response_body
+    end
+
     private
 
     # Request sender
@@ -56,6 +83,8 @@ module MrSpeedyRuby
       request = if method == "post"
                   Net::HTTP::Post.new(uri)
                 else
+                  # Encode payload as query parameters for GET method
+                  uri.query = URI.encode_www_form( payload )
                   Net::HTTP::Get.new(uri)
                 end
 

@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://robotapitest.mrspeedy.ph/api/business/1.1/orders?status=completed
+    body:
+      encoding: UTF-8
+      string: '{"status":"completed"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - robotapitest.mrspeedy.ph
+      X-Dv-Auth-Token:
+      - 70B4ABCA8A35AC50E1585E27F217DF160F740D46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 13 May 2020 14:47:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block;
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"is_successful":true,"orders":[],"orders_count":0}'
+    http_version: null
+  recorded_at: Wed, 13 May 2020 14:47:45 GMT
+recorded_with: VCR 5.1.0

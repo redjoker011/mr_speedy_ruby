@@ -81,6 +81,8 @@ to make a request on mr.speedy sandbox server.
 
 By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
 
+## Orders
+
 ### Placing an Order
 Send request to mr.speedy api to create order.
 
@@ -118,6 +120,26 @@ parameter to true to test our implementation against sandbox server.
 
 By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
 
+### Fetch Orders
+
+Fetch Orders by initializing client and calling `MrSpeedyRuby::Client#orders`
+method
+
+```ruby
+client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+client.orders(sandbox: true)
+```
+
+You can also control how orders will be fetch by supplying additional
+[arguments](https://apitest.mrspeedy.ph/business-api/doc#orders) to your query
+via payload argument.
+
+```ruby
+client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+# Fetch Completed Orders
+client.orders(sandbox: true, payload: { status: "completed" })
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -131,7 +153,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 - [x] Create Order
 - [ ] Update Order
 - [ ] Cancel Order
-- [ ] Order List
+- [x] Order List
 - [ ] Courier Info and Location Tracker
 - [ ] Create Draft Deliveries
 - [ ] Update Draft Deliveries
