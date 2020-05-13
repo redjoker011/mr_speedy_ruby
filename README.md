@@ -81,6 +81,8 @@ to make a request on mr.speedy sandbox server.
 
 By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
 
+## Orders
+
 ### Placing an Order
 Send request to mr.speedy api to create order.
 
@@ -117,6 +119,26 @@ parameter to true to test our implementation against sandbox server.
 [Delivery Details](https://apitest.mrspeedy.ph/business-api/doc#create-order) can also be passed along pickup/delivery params.
 
 By default we set `MOTORBIKE` as default vehicle unless you pass `vehicle_type_id` as option for `opts`.
+
+### Fetch Orders
+
+Fetch Orders by initializing client and calling `MrSpeedyRuby::Client#orders`
+method
+
+```ruby
+client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+client.orders(sandbox: true)
+```
+
+You can also control how orders will be fetch by supplying additional
+[arguments](https://apitest.mrspeedy.ph/business-api/doc#orders) to your query
+via payload argument.
+
+```ruby
+client = MrSpeedyRuby::Client.new(token: "mr-speedy-token")
+# Fetch Completed Orders
+client.orders(sandbox: true, payload: { status: "completed" })
+```
 
 ## Development
 
