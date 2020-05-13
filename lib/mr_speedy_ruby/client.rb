@@ -1,4 +1,5 @@
 require "mr_speedy_ruby/base"
+require "mr_speedy_ruby/order"
 require "mr_speedy_ruby/lib/hash_refinement"
 
 module MrSpeedyRuby
@@ -10,15 +11,6 @@ module MrSpeedyRuby
     # @see https://apitest.mrspeedy.ph/business-api/doc#vehicle-types
     CAR       = 7.freeze
     MOTORBIKE = 8.freeze
-
-    # @attr_reader [String] token authentication token
-    # @attr_reader [String] version api version
-    attr_reader :token, :version
-
-    def initialize(token:, version: "1.1")
-      @token = token
-      @version = version
-    end
 
     # Delivery Fee Calculation
     # @since 0.1.0
@@ -94,6 +86,24 @@ module MrSpeedyRuby
       payload = build_payload(opts: opts, pickup: pickup, delivery: delivery)
 
       post(endpoint: url, token: @token, payload: payload)
+    end
+
+    # Order List
+    # @since 1.0.0-alpha.3
+    #
+    # @param [Boolean] sandbox sandbox mode
+    # @param [Hash] payload order query payload
+    # @param payload [Integer, Array<Integer>] :order_id order id
+    # @param payload [String] :status order status
+    # @param payload [Integer] :offset order record offset count
+    # @param payload [Integer] :count order record limit
+    #
+    # @see https://apitest.mrspeedy.ph/business-api/doc#orders
+    #
+    # @return [Json]
+    def orders(sandbox: false, payload: {})
+      order_client = MrSpeedyRuby::Order.new(token: @token, version: @version)
+      order_client.orders(sandbox: sandbox, payload: payload)
     end
 
     private
