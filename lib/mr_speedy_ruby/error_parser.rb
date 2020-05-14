@@ -9,7 +9,7 @@ module MrSpeedyRuby
     ERROR_CODES = {
       "unexpected_error"                    => UnexpectedError,
       "invalid_api_version"                 => InvalidAPIVersion,
-      "invalid_api_upgrade"                 => InvalidAPIUpgrage,
+      "required_api_upgrade"                => RequiredAPIUpgrade,
       "request_limit_exceeded"              => RequestLimitExceeded,
       "required_auth_token"                 => RequiredAuthToken,
       "invalid_auth_token"                  => InvalidAuthToken,

@@ -28,7 +28,7 @@ module MrSpeedyRuby
   # Mr.Speedy Invalid API Version Error Class
   # @since 1.0.0-alpah.4
   # @raise [Error] mr.speedy invalid api version error
-  class InvalidAPIVersionError < MrSpeedyError
+  class InvalidAPIVersion < MrSpeedyError
     def to_s
       @message || "Unknown API version."
     end

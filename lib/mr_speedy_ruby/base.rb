@@ -48,6 +48,8 @@ module MrSpeedyRuby
       response = send_request("post", endpoint, token, payload)
 
       response_body = JSON.parse(response.body)
+      validate_error(response: response_body)
+
       response_body
     end
 
@@ -62,6 +64,8 @@ module MrSpeedyRuby
       response = send_request("get", endpoint, token, payload)
 
       response_body = JSON.parse(response.body)
+      validate_error(response: response_body)
+
       response_body
     end
 
@@ -96,6 +100,16 @@ module MrSpeedyRuby
       Net::HTTP.start(uri.hostname, uri.port, options) do |http|
         http.request(request)
       end
+    end
+
+    # Error Validator
+    # @since 1.0.0-alpha.4
+    #
+    # @raise [Error] response error
+    def validate_error(response)
+      success = response["is_successful"]
+      error = response["errors"]&.first || ""
+      MrSpeedyRuby::ErrorParser.raise_errors_from(code: error) unless success
     end
   end
 end
