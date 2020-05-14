@@ -106,7 +106,7 @@ module MrSpeedyRuby
     # @since 1.0.0-alpha.4
     #
     # @raise [Error] response error
-    def validate_error(response)
+    def validate_error(response:)
       success = response["is_successful"]
       error = response["errors"]&.first || ""
       MrSpeedyRuby::ErrorParser.raise_errors_from(code: error) unless success
