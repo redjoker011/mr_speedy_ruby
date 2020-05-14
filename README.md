@@ -160,7 +160,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 - [ ] Draft Delivery Deletion
 - [ ] Draft Delivery List
 - [ ] API Setting Update
-- [ ] Request Error Handling
+- [x] Request Error Handling
 
 ## License
 
