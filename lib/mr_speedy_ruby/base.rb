@@ -7,7 +7,7 @@ module MrSpeedyRuby
     require "json"
 
     AUTH_TOKEN_HEADER="X-DV-Auth-Token".freeze
-    PRODUCTION_BASE_URL="http://robot.mrspeedy.ph".freeze
+    PRODUCTION_BASE_URL="https://robot.mrspeedy.ph".freeze
     STAGING_BASE_URL="https://robotapitest.mrspeedy.ph".freeze
 
     # Constructor method
