@@ -69,4 +69,25 @@ class MrSpeedyRubyTest < Minitest::Test
       assert request["is_successful"]
     end
   end
+
+  def test_that_it_raise_invalid_parameter_error
+    VCR.use_cassette("raise_invalid_parameters") do
+      client = MrSpeedyRuby::Client.new(token: token)
+
+      resp = assert_raises MrSpeedyRuby::InvalidParameters do
+        client.place_order(
+          delivery: delivery_details,
+          pickup: {
+            address: "",
+            contact_person: { name: "", phone: "" },
+            packages: []
+          },
+          opts: { matter: nil },
+          sandbox: true
+        )
+      end
+
+      assert_includes resp.message, "Request parameters contain errors"
+    end
+  end
 end
