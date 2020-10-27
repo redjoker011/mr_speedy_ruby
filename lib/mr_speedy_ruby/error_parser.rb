@@ -33,8 +33,8 @@ module MrSpeedyRuby
     class << self
       # Raise Error from Response Status
       # @param code [String] error code
-      def raise_errors_from(code:)
-        raise_error_for(code)
+      def raise_errors_from(code:, errors: nil)
+        raise_error_for(code, errors)
 
         # Default to Unexpected Error
         raise UnexpectedError
@@ -48,12 +48,19 @@ module MrSpeedyRuby
       # @private
       #
       # @raise [MrSpeedyRuby::MrSpeedyError] raise code based error
-      def raise_error_for(code)
+      def raise_error_for(code, errors)
         error = ERROR_CODES[code]
+        return unless error
 
-        # Constantize string class
-        # @see https://stackoverflow.com/a/5924541
-        raise Object.const_get("MrSpeedyRuby::#{error}") if error
+        if error == MrSpeedyRuby::InvalidParameters
+          # Include parameter errors
+          msg = "Request parameters contain errors, ERRORS: #{errors.inspect}"
+          raise MrSpeedyRuby::InvalidParameters, msg
+        else
+          # Constantize string class
+          # @see https://stackoverflow.com/a/5924541
+          raise Object.const_get("MrSpeedyRuby::#{error}")
+        end
       end
     end
   end

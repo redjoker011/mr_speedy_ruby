@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://robotapitest.mrspeedy.ph/api/business/1.1/create-order
+    body:
+      encoding: UTF-8
+      string: '{"matter":null,"vehicle_type_id":8,"points":[{"address":"","contact_person":{"name":"","phone":""},"packages":[]},{"address":"Unit
+        802, EcoTower, 32nd Street corner 9th Avenue, BGC, Taguig, 1634 Metro Manila","contact_person":{"name":"Reciever","phone":"639123456789"},"packages":[]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - robotapitest.mrspeedy.ph
+      X-Dv-Auth-Token:
+      - 70B4ABCA8A35AC50E1585E27F217DF160F740D46
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 27 Oct 2020 08:37:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block;
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"is_successful":false,"errors":["invalid_parameters"],"parameter_errors":{"matter":["not_nullable"],"points":[{"address":["min_length"],"contact_person":{"phone":["invalid_phone"]}},null]}}'
+    http_version:
+  recorded_at: Tue, 27 Oct 2020 08:37:50 GMT
+recorded_with: VCR 5.1.0

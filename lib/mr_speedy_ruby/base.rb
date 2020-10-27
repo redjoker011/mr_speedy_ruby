@@ -109,7 +109,12 @@ module MrSpeedyRuby
     def validate_error(response:)
       success = response["is_successful"]
       error = response["errors"]&.first || ""
-      MrSpeedyRuby::ErrorParser.raise_errors_from(code: error) unless success
+      unless success
+        MrSpeedyRuby::ErrorParser.raise_errors_from(
+          code: error,
+          errors: response["parameter_errors"]
+        )
+      end
     end
   end
 end
